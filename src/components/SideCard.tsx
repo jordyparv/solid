@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link'
 import { CalendarDaysIcon } from '@heroicons/react/24/solid'
 import TagIcon from './TagIcon'
 
@@ -7,20 +7,21 @@ export default function SideCard({ data }: { data: { [key: string]: any } }) {
     let date = new Date(data?.publishedAt).toLocaleString('in-en')?.split(',')[0]
     return (
         <div className="col-span-1 md:col-span-2 lg:col-span-2 xl:col-span-3">
-            <a href="#">
+            <Link href="#">
+
                 <img
                     src={data?.urlToImage ? data.urlToImage : ''}
                     className="object-cover aspect-video mb-5 bg-center w-full rounded"
                     alt={data?.title && data.title}
                     loading="lazy"
                 />
-            </a>
+            </Link>
 
             <div className='mx-auto max-w-7xl '>
                 <h2 className="mb-2 font-bold leading-snug text-gray-900">
-                    <a href="#" className="text-gray-100 hover:text-yellow-500 border-b">
+                    <Link href="#" className="text-gray-100 hover:text-yellow-500 border-b">
                         {data?.title && data.title}
-                    </a>
+                    </Link>
                 </h2>
                 <div className='flex items-center justify-between my-4'>
                     <TagIcon text='Development' />

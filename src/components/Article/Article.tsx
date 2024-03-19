@@ -1,7 +1,7 @@
 import React from 'react'
 import ArticleCard from './ArticleCard'
 import Card from '../Blog/Card'
-
+import Link from 'next/link'
 
 export default function Article({ data }: { data: { [key: string]: any } }) {
     return (
@@ -21,9 +21,9 @@ export default function Article({ data }: { data: { [key: string]: any } }) {
 
                     </div>
                     {/* <div className="pt-10 mt-10 border-t border-slate-900">
-                        <a href="/#" className="w-full border border-yellow-500 p-3 hover:bg-yellow-500 hover:text-black transition-all md:w-auto">
+                        <Link href="/#" className="w-full border border-yellow-500 p-3 hover:bg-yellow-500 hover:text-black transition-all md:w-auto">
                             Load More
-                        </a>
+                        </Link>
                     </div> */}
 
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { CalendarDaysIcon } from '@heroicons/react/24/solid'
 import TagIcon from '../TagIcon'
-
+import Link from 'next/link'
 export default function Card({ data }: CardType) {
     let date = new Date(data?.publishedAt).toLocaleString('in-en')?.split(',')[0]
     // let publishedAt = `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`
@@ -11,7 +11,7 @@ export default function Card({ data }: CardType) {
             backgroundImage: `url(${data?.urlToImage ? data?.urlToImage : 'http://placehold.co/400'})`
         }}
     >
-        <a href={`/post/${data?.title}`}>
+        <Link href={`/post/${data?.title}`}>
             <div className="absolute z-0 size-full bg-gradient-to-b from-transparent to-black flex flex-col justify-end px-2">
                 <h2 className="text-md text-white group-hover:text-yellow-500 font-medium line-clamp-2">
                     {data?.title && data.title}
@@ -24,7 +24,7 @@ export default function Card({ data }: CardType) {
                     </span>
                 </div>
             </div>
-        </a>
+        </Link>
     </div>
 
 }

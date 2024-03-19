@@ -3,9 +3,10 @@ import React from 'react'
 import TagIcon from '../TagIcon'
 import { FaceBookIcon, ShareIcon, TwitterIcon, WhatsappIcon } from '@/assets/icons';
 import Comments from '../comments';
+import { formatPublishDate } from '@/utils/helperfunctions';
 
 export default function Post({ data }: { data: { [key: string]: any } }) {
-    let date = new Date(data?.publishedAt).toLocaleString('in-en')?.split(',')[0]
+    let date = formatPublishDate(data?.publishedAt)
     return (
         <article
             className='px-4 mx-auto'
@@ -63,7 +64,7 @@ export default function Post({ data }: { data: { [key: string]: any } }) {
                     {data?.content}
                 </div>
             </div>
-            {/* <Comments post={{ id: "1234jfas", title: 'singlesite' }} /> */}
+            <Comments post={{ id: data?._id, title: data?.title }} />
         </article >
     );
 }

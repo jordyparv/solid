@@ -3,7 +3,11 @@ import { md5 } from '@/utils/md5';
 const { BASE_URL } = process.env;
 export async function getArticles() {
   try {
-    const res = fetch(`${BASE_URL}/api/article?limit=50`);
+    const res = fetch(`${BASE_URL}/api/article?limit=50`, {
+      headers: {
+        'Cache-Control': 'no-cache',
+      },
+    });
     const { data } = await (await res).json();
     return data;
   } catch (e: any) {
@@ -23,7 +27,6 @@ export async function getHeadline() {
 
 export async function getPostBySlug(title: string) {
   try {
-    
     let slug = title.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
     slug = md5(slug);
     const res = fetch(`${BASE_URL}/api/article/${slug}/`);

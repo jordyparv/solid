@@ -1,6 +1,7 @@
 import React from 'react'
 import TagIcon from '../TagIcon'
 import { CalendarDaysIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
 
 export default function ArticleCard({ data }: { data: { [key: string]: any } }) {
     let date = new Date(data?.publishedAt).toLocaleString('in-en')?.split(',')[0]
@@ -15,9 +16,9 @@ export default function ArticleCard({ data }: { data: { [key: string]: any } }) 
             <div className="col-span-1 ">
 
                 <h2 className="mb-2 text-xl font-extrabold leading-snug line-clamp-3">
-                    <a href="#" className="hover:text-yellow-500">
+                    <Link href="#" className="hover:text-yellow-500">
                         {data?.title && data.title}
-                    </a>
+                    </Link>
                 </h2>
                 <div className='mb-2 flex items-center gap-2'>
                     <TagIcon text={data?.author ?? ''} />
@@ -29,9 +30,9 @@ export default function ArticleCard({ data }: { data: { [key: string]: any } }) 
                 <p className="text-sm font-normal text-white/50 text-justify line-clamp-3">
                     {data?.description && data.description}
                 </p>
-                <a href="#" className="w-full z-0 text-sm hover:text-yellow-500 md:w-auto font-medium">
+                <Link href="#" className="w-full z-0 text-sm hover:text-yellow-500 md:w-auto font-medium">
                     Read More
-                </a>
+                </Link>
             </div>
         </div>
     )

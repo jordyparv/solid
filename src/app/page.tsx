@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import BlogContainer from '@/components/Blog/BlogContainer'
 import SingleBlogCard from '@/components/Blog/SingleBlogCard'
 import { getArticles, getHeadline } from '@/controller'
+
 export default async function Home() {
   const data = await getArticles()
   const [HeadlineData] = await getHeadline()
