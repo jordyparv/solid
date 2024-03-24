@@ -1,22 +1,78 @@
 'use client'
+import { getCategories } from '@/controller/getData';
 import { Bars3Icon, ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import OutsideClickHandler from 'react-outside-click-handler';
+import HeaderSkeleton from './skeletons/HeaderSkeleton';
 
 export default function Header() {
     const [isClicked, setIsClicked] = useState<Boolean>(false)
     const [show, setShow] = useState<Boolean>(false)
+    const [subNavMenuData, setSubMenuData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         const handleResize = () => {
             setShow(window.innerWidth > 768);
         };
         handleResize();
+        getCategory();
         window.addEventListener('resize', handleResize);
+
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+
     }, []);
+
+    const getCategory = async () => {
+        try {
+            setIsLoading(true)
+
+            const { data } = await getCategories({ serverSide: false })
+            setSubMenuData(data)
+            setIsLoading(false)
+        } catch (error) {
+            setIsLoading(false)
+            console.error(error)
+        }
+    }
+    const SubNavItem = ({ name, slug }: { name: string, slug: string }) => {
+        return <li className='whitespace-nowrap p-2 hover:text-primary capitalize'><Link href={`/category/${slug}`} className='block p-2'>{name && name}</Link></li>
+    }
+    const NavItem = () => {
+        return <ul className='hidden md:flex gap-5 flex-col md:flex-row z-50'
+            style={{ display: show ? 'flex' : 'none' }
+            }
+        >
+            <li className='hover:text-primary font-medium'><Link href='/'>Home</Link></li>
+            <li className='relative hover:text-primary font-medium block'>
+                <button
+                    onClick={() => setIsClicked(prev => !prev)}
+                    className='flex gap-2 items-center w-full justify-between'
+                >
+                    <span>
+                        Category
+                    </span>
+                    <ChevronDownIcon className='size-4 text-white' />
+                </button>
+                {isClicked
+                    &&
+                    <ul className='mt-2 mx-2 md:mt-0 md:mx-0 rounded-lg text-white space-y-1 md:absolute top-14 md:border border-gray-800 z-50 md:bg-black/80'
+                    >
+                        {subNavMenuData?.length > 0 && subNavMenuData.map((item: any) =>
+                            <SubNavItem name={item?.name} slug={item?.slug} key={item?._id} />)}
+                    </ul>
+                }
+            </li>
+            <li className='hover:text-primary font-medium capitalize'><Link href='/news' className='w-full block'>News</Link></li>
+            <li className='hover:text-primary font-medium capitalize'><Link href='/blogs' className='w-full block'>Blogs</Link></li>
+            <li className='hover:text-primary font-medium capitalize'><Link href='/about' className='w-full block'>About</Link></li>
+            <li className='hover:text-primary font-medium capitalize'><Link href='/contact-us' className='w-full block'>Contact Us</Link></li>
+        </ul >
+
+    }
     return (
         <header className="sticky top-0 border-b border-b-gray-900 bg-black/30 backdrop-blur-lg z-50 ">
             <OutsideClickHandler
@@ -35,37 +91,12 @@ export default function Header() {
                             <Bars3Icon className='size-8 text-white' />
                         </button>
                     </div>
-                    <ul className='hidden md:flex gap-5 flex-col md:flex-row'
-                        style={{ display: show ? 'flex' : 'none' }}
-                    >
-                        <li className='hover:text-yellow-500 font-medium'><Link href='/'>Home</Link></li>
-                        <li className='relative hover:text-yellow-500 font-medium block'>
-                            <button
-                                onClick={() => setIsClicked(prev => !prev)}
-                                className='flex gap-2 items-center w-full justify-between'
-                            >
-                                <span>
-                                    Category
-                                </span>
-                                <ChevronDownIcon className='size-4 text-white' />
-                            </button>
-                            {isClicked
-                                &&
-                                <ul className='mt-2 mx-2 md:mt-0 md:mx-0 rounded text-white space-y-1 md:absolute top-14 md:border border-gray-900 z-50 md:bg-black/80'
-                                >
-                                    <li className='whitespace-nowrap p-2 hover:text-yellow-500'><Link href='#' className=''>Category 1</Link></li>
-                                    <li className='whitespace-nowrap p-2 hover:text-yellow-500'><Link href='#' className=''>Category 2</Link></li>
-                                    <li className='whitespace-nowrap p-2 hover:text-yellow-500'><Link href='#' className=''>Category 3</Link></li>
-                                </ul>
-                            }
-                        </li>
-                        <li className='hover:text-yellow-500 font-medium'><Link href='/#' className='w-full block'>News</Link></li>
-                        <li className='hover:text-yellow-500 font-medium'><Link href='/#' className='w-full block'>Blogs</Link></li>
-                        <li className='hover:text-yellow-500 font-medium'><Link href='/#' className='w-full block'>About</Link></li>
-                        <li className='hover:text-yellow-500 font-medium'><Link href='/#' className='w-full block'>Contact Us</Link></li>
-                    </ul>
+                    {isLoading ? <HeaderSkeleton /> : <NavItem />}
+
                 </div>
             </OutsideClickHandler >
         </header >
     )
 }
+
+

@@ -1,19 +1,80 @@
+import { ArticlePropsType } from '@/interface';
 import Article from '@/models/Article.model';
 import dbConnect from '@/utils/db';
 import { type NextRequest } from 'next/server';
+
 export async function GET(req: NextRequest, res: Response) {
-  await dbConnect();
-  const searchParams = req.nextUrl.searchParams;
-  let limit: number = Number(searchParams.get('limit')) || 50;
-  const articles = await Article.find({}).sort({ createdAt: -1 }).limit(50);
-  return Response.json({ data: articles });
+  try {
+    await dbConnect();
+    const searchParams = req.nextUrl.searchParams;
+    let limit: number = Number(searchParams.get('limit')) || 50;
+    let excludeSlug: string = searchParams.get('exclude_slug') || '';
+    let byCategory: number = Number(searchParams.get('by_category')) || 0;
+    let postType: string = searchParams.get('post_type') || '';
+
+    const articles = await Article.find({
+      slug: { $ne: excludeSlug },
+      postType: {
+        [postType === '' ? '$ne' : '$eq']: postType,
+      },
+    })
+      .sort({ createdAt: -1 })
+      .limit(limit);
+
+    if (byCategory === 1 && articles) {
+      const categories = articles?.map((item) => item.category);
+      const categoriesRes = await fetch(
+        `${process.env.BASE_URL}/api/categories`
+      );
+      const { data: categoriesData }: any = await categoriesRes.json();
+      const categoriesBySlug: any = {};
+      for (const item of categoriesData) {
+        if (categoriesBySlug[item.slug]) {
+          categoriesBySlug[item.slug] = {
+            ...categoriesBySlug[item.slug],
+            ...item,
+          };
+        } else {
+          categoriesBySlug[item.slug] = {
+            ...item,
+          };
+        }
+      }
+
+      let data: {
+        [key: string]: ArticlePropsType[];
+      } = {};
+      for (let article of articles) {
+        if (
+          article?.category &&
+          categoriesBySlug[article?.category]?.slug &&
+          categories.includes(categoriesBySlug[article.category]?.slug)
+        ) {
+          if (data[categoriesBySlug[article.category]?.name]) {
+            data[categoriesBySlug[article.category]?.name] = [
+              ...data[categoriesBySlug[article.category]?.name],
+              article,
+            ];
+          } else {
+            data[categoriesBySlug[article.category]?.name] = [article];
+          }
+        }
+      }
+      // console.log(Object.keys(data));
+      return Response.json({ data });
+    }
+
+    return Response.json({ data: articles });
+  } catch (error) {
+    console.error(error);
+    return Response.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
 }
 
 export async function POST(req: Request, res: Response) {
   try {
-    await dbConnect();
     const data = await req.json();
-
+    await dbConnect();
     if (Array.isArray(data)) {
       const validationErrors = [];
       const savedArticles = [];
@@ -72,3 +133,7 @@ export async function POST(req: Request, res: Response) {
     );
   }
 }
+
+type ArticleParamsReqType = {
+  limit?: number;
+};

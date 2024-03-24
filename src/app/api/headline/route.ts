@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   try {
     await dbConnect();
     const headlineData = await req.json();
-    console.log({ headlineData });
+    
     const headline = new Headline(headlineData);
     const saveHeadline = await headline.save();
     return Response.json({ data: saveHeadline });

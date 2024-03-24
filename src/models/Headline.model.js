@@ -1,10 +1,13 @@
 import { Schema, model, models } from "mongoose";
 import { md5 } from "@/utils/md5.js";
+import { slugMaker } from "@/utils/helper-functions";
 const HeadlineSchema = new Schema(
     {
         slug: {
             type: String,
             unique: true,
+            lowercase: true,
+            trim: true
         },
 
         source: {
@@ -55,13 +58,12 @@ const HeadlineSchema = new Schema(
             type: Date,
             default: Date.now, // Automatically set on document update
         },
-
+        enable: { type: Boolean, default: true }
     }
 );
 // Logic to generate slug before saving the document (outside schema)
 HeadlineSchema.pre('save', function (next) {
-    const slug = this.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
-    this.slug = md5(slug);
+    this.slug = slugMaker(this.title);
     next();
 })
 

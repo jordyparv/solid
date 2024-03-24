@@ -7,7 +7,7 @@ export default function Selection() {
     return (
         <>
 
-            <div className="snap-start flex items-center justify-center min-h-screen ">
+            <div id='home' className="snap-start flex items-center justify-center  h-screen overflow-y-auto">
                 <div className="w-full max-w-lg px-10 py-8 mx-auto">
                     <div className="max-w-md mx-auto space-y-6">
                         <div className="dropdown-menu">
@@ -62,7 +62,7 @@ export default function Selection() {
                                             </svg>
                                         </div>
                                     </div>
-                                    <div className="py-6 flex items-center w-full border-t border-gray-200 hover:animate-pulse transition-all">
+                                    {/* <div className="py-6 flex items-center w-full border-t border-gray-200 hover:animate-pulse transition-all">
                                         <Link href="#article" className="flex-1">
                                             <div className="text-gray-900 font-medium text-base">Card Post Form</div>
                                         </Link>
@@ -78,7 +78,8 @@ export default function Selection() {
                                                 <line x1={20} y1={10} x2={40} y2={10} stroke="#9CA3AF" />
                                             </svg>
                                         </div>
-                                    </div>
+                                    </div> */}
+
                                     <div className="py-6 flex items-center w-full border-t border-gray-200 hover:animate-pulse transition-all">
                                         <Link href="#article" className="flex-1">
                                             <div className="text-gray-900 font-medium text-base">Article Post Form</div>
@@ -97,8 +98,8 @@ export default function Selection() {
                                         </div>
                                     </div>
                                     <div className="py-6 flex items-center w-full hover:animate-pulse transition-all border-t border-gray-200">
-                                        <Link href="#article" className="flex-1">
-                                            <div className="text-gray-900 font-medium text-base">Only Text Article</div>
+                                        <Link href="#category" className="flex-1">
+                                            <div className="text-gray-900 font-medium text-base">Add Category</div>
                                         </Link>
                                         <div>
                                             <svg

@@ -25,9 +25,106 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
+[data-remove-styles] * {
+  all: unset;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+ 
+  
+}
+
+
+.rsw-ce ul{
+ list-style: disc;
+}
+.rsw-ce p {
+  /* Default styles for paragraphs */
+  margin-bottom: 1em;
+  line-height: 1.6;
+  /* Add more default paragraph styles as needed */
+}
+
+
+
+.rsw-ce ol{
+  
+    list-style: decimal;
+  
+}
+.rsw-ce h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.rsw-ce h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.rsw-ce h3 { 
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.rsw-ce h4 { 
+    display: block;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.rsw-ce h5 { 
+    display: block;
+    font-size: .83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.rsw-ce h6 { 
+    display: block;
+    font-size: .67em;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.rsw-ce a:link, .rsw-ce a:visited {
+  color:#EAB308;
+  /* text-decoration: underline; */
+  cursor: pointer;
+}
+
+.rsw-ce a:link:active, .rsw-ce a:visited:active {
+  color: violet;
+}
+
+.rsw-ce code{
+  font-family: monospace;
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%;
+}
+.rsw-ce{
+  padding: 12px;
+  margin: 12px;
 }

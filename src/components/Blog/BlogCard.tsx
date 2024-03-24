@@ -2,12 +2,12 @@ import { CalendarDaysIcon } from '@heroicons/react/24/solid'
 import React from 'react'
 import TagIcon from '../TagIcon'
 import Link from 'next/link'
-import { formatPublishDate } from '@/utils/helperfunctions'
+import { formatPublishDate } from '@/utils/helper-functions'
 export default function BlogCard({ data }: { data: { [key: string]: any } }) {
 
     return (
         <div className='aspect-video'>
-            <Link href="#">
+            <Link href={`/post/${data?.slug}`}>
                 <div className='w-full mb-5 overflow-hidden'>
                     <img
                         src={data?.urlToImage ? data.urlToImage : ''}
@@ -17,12 +17,12 @@ export default function BlogCard({ data }: { data: { [key: string]: any } }) {
                     />
                 </div>
             </Link>
-            <h2 className="mb-2 text-md font-semibold ">
-                <Link href="#" className=" hover:text-yellow-500">
+            <h2 className="mb-2 text-xl font-semibold">
+                <Link href={`/post/${data?.slug}`} className=" hover:text-primary">
                     {data?.title && data.title}
                 </Link>
             </h2>
-            <p className="mb-3 text-sm font-normal text-white/50 line-clamp-3">
+            <p className="mb-3 text-md font-normal text-white/50 line-clamp-3">
                 {data?.description && data.description}
             </p>
             <p className="mb-3 text-sm font-normal text-white/50 flex gap-2 items-center">

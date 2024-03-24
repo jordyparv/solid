@@ -6,6 +6,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
     extend: {
       keyframes: {
@@ -24,9 +25,9 @@ const config: Config = {
       },
       colors: {
         primary: {
-          light: '#fefcbf', // For lighter primary color
-          DEFAULT: '#b7791f', // Normal primary color
-          dark: '#744210', // Used for hover, active, etc.
+          light: ' #f8c954', // For lighter primary color
+          DEFAULT: '#EAB308', // Normal primary color
+          dark: '#ac8306', // Used for hover, active, etc.
         },
       },
     },

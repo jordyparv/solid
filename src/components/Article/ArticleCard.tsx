@@ -2,9 +2,11 @@ import React from 'react'
 import TagIcon from '../TagIcon'
 import { CalendarDaysIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import { formatPublishDate } from '@/utils/helper-functions'
+import { ArticlePropsType } from '@/interface'
 
-export default function ArticleCard({ data }: { data: { [key: string]: any } }) {
-    let date = new Date(data?.publishedAt).toLocaleString('in-en')?.split(',')[0]
+export default function ArticleCard({ data }: { data: ArticlePropsType }) {
+
     return (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <img
@@ -16,21 +18,25 @@ export default function ArticleCard({ data }: { data: { [key: string]: any } }) 
             <div className="col-span-1 ">
 
                 <h2 className="mb-2 text-xl font-extrabold leading-snug line-clamp-3">
-                    <Link href="#" className="hover:text-yellow-500">
+                    <Link href={`/post/${data?.slug}`} className="hover:text-primary">
                         {data?.title && data.title}
                     </Link>
                 </h2>
-                <div className='mb-2 flex items-center gap-2'>
-                    <TagIcon text={data?.author ?? ''} />
-                    <span className="text-sm font-normal text-white/50 flex items-center gap-2">
-                        <CalendarDaysIcon className='size-4 text-white/50' />
-                        {date}
-                    </span>
+                <div className='mb-2'>
+                    <div className='flex flex-wrap gap-2'>
+                        {data.keywords && data.keywords?.length > 0 && data.keywords.slice(0, 3).map((item: string, idx: number) =>
+                            <TagIcon text={item} key={item + idx} />
+                        )}
+                    </div>
+                    <p className="text-sm font-normal text-white/50 mt-1">
+                        {data?.author?.concat(' - ') ?? ''}
+                        {formatPublishDate(data?.publishedAt)}
+                    </p>
                 </div>
                 <p className="text-sm font-normal text-white/50 text-justify line-clamp-3">
                     {data?.description && data.description}
                 </p>
-                <Link href="#" className="w-full z-0 text-sm hover:text-yellow-500 md:w-auto font-medium">
+                <Link href={`/post/${data?.slug}`} className="w-full z-0 text-sm hover:text-primary md:w-auto font-medium">
                     Read More
                 </Link>
             </div>

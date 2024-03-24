@@ -19,25 +19,25 @@ export default function Footer() {
                             Product
                         </p>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Features
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Pricing
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Feedback
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             FAQs
@@ -48,26 +48,26 @@ export default function Footer() {
                             Support
                         </p>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Chat
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             {" "}
                             Email Support{" "}
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             GDPR
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             {" "}
@@ -79,26 +79,26 @@ export default function Footer() {
                             Resources
                         </p>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Blog
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             {" "}
                             Twitter{" "}
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Alternatives
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Why feature vote?
@@ -109,25 +109,25 @@ export default function Footer() {
                             Company
                         </p>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             About Us
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Privacy
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Terms
                         </Link>
                         <Link
-                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-yellow-500"
+                            className="flex mb-3 text-sm font-medium text-gray-100 transition md:mb-2 hover:text-primary"
                             href="#"
                         >
                             Status

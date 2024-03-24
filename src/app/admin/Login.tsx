@@ -34,7 +34,7 @@ export default function Login() {
                         </label>
                         <button
                             type="submit"
-                            className="w-full py-3 mt-1 btn bg-yellow-500"
+                            className="w-full py-3 mt-1 btn bg-primary"
                         >
                             Login
                         </button>
