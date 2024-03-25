@@ -71,9 +71,9 @@ const ArticleSchema = new Schema(
         },
 
         enable: { type: Boolean, default: true }
-    }, { toJSON: { virtuals: true }, toObject: { virtuals: true } }
+    }
 );
-ArticleSchema.index({ slug: 'text' });
+
 ArticleSchema.pre('save', function (next) {
     this.slug = slugMaker(this.title);
     next();

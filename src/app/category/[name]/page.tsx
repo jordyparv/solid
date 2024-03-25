@@ -22,7 +22,7 @@ export async function generateMetadata(
     const name = params.name
 
     const { data: categories } = await getCategories({ serverSide: true });
-    const category = categories.find((item: any) => item.slug === slugMaker(decodeURIComponent(name)))
+    const category = categories.find((item: any) => item.slug === decodeURIComponent(name))
     const { data } = await getArticlesByCategory(category?.slug)
 
     return {
@@ -36,13 +36,13 @@ export default async function page({ params }: props) {
     let { name: categoryName } = params
 
     const { data: categories } = await getCategories({ serverSide: true });
-    const category = categories.find((item: any) => item.slug === slugMaker(decodeURIComponent(categoryName)))
+    const category = categories.find((item: any) => item.slug === (decodeURIComponent(categoryName)))
     const { data } = await getArticlesByCategory(category?.slug)
 
     if (!category?.name) {
         notFound();
     }
-    
+
 
     return (
         <div>

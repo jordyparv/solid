@@ -10,7 +10,9 @@ export async function GET(req: Request, context: { params: Params }) {
     const { slug } = context.params;
     if (slug) {
       await dbConnect();
-      const data = await Article.findOne({ $text: { $search: slug } });
+
+      const data = await Article.findOne({ slug });
+
       return Response.json({ data });
     }
     return Response.json({ msg: 'No slug provided' });
