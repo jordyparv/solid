@@ -7,7 +7,7 @@ export interface ArticlePropsType {
     name: string;
   };
   author?: string;
-  title: string;
+  title?: string | undefined;
   description?: string;
   url?: string;
   ImageUrl?: string;
@@ -21,4 +21,5 @@ export interface ArticlePropsType {
   updatedAt: Date;
   enable?: boolean;
   v?: any;
+  [key: string]: any;
 }

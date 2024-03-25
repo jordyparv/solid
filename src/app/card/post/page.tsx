@@ -3,13 +3,13 @@ import Card from '@/components/Blog/Card'
 import { getArticles } from '@/controller/getData'
 import { ArticlePropsType } from '@/interface'
 
-export default async function Page({ title }: { title?: string }) {
+export default async function Page() {
     const { data } = await getArticles({ post_type: 'card' })
     return (
 
         <section className="px-4 mx-auto max-w-7xl mb-20">
             <h2 className="mb-6 text-3xl font-extrabold leading-tight">
-                {title ?? ''}
+                {'Latest Posts'}
             </h2>
             {/* <p className="mb-20 text-lg">
                 Comes directly 

@@ -14,7 +14,7 @@ const getSideCard = (data: ArticlePropsType, type: string) => ({
 })[type]
 
 
-export default function BlogContainer({ data, cardsData, title }: { data: ArticlePropsType[], cardsData: ArticlePropsType[], title?: string }) {
+export default function BlogContainer({ data, cardsData, title }: { data: ArticlePropsType[], cardsData?: ArticlePropsType[], title?: string }) {
 
 
     return (
@@ -41,7 +41,7 @@ export default function BlogContainer({ data, cardsData, title }: { data: Articl
                 </div>
                 <div className='hidden md:block space-y-4'>
                     {/* <h4 className='text-2xl mb-4  text-white/70'></h4> */}
-                    {cardsData?.length > 0 && cardsData.map((item: ArticlePropsType) =>
+                    {cardsData && cardsData?.length > 0 && cardsData.map((item: ArticlePropsType) =>
                         getSideCard(item, item?.postType ?? '')
                     )}
                 </div>

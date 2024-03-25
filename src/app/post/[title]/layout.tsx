@@ -26,7 +26,7 @@ export default async function layout({ params, children }: props) {
             <Header />
             <section className="grid md:grid-cols-[minmax(0px,_1fr)_280px] gap-2 px-4 py-4 md:py-14 mx-auto max-w-7xl  border-b border-b-white/50 pb-20">
                 <div className="w-full">
-                    <Page data={data} title={title} />
+                    {children}
                     {relatedArticles.length > 0 &&
                         <BlogList data={relatedArticles?.filter((item: ArticlePropsType) => item.slug !== postSlug)} Element={BlogListCard} title='Relative Posts' />
                     }

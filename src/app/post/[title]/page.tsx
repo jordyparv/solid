@@ -4,9 +4,12 @@ import { formatPublishDate } from '@/utils/helper-functions';
 import { ArticlePropsType } from '@/interface';
 import TagIcon from '@/components/TagIcon';
 import Comments from '@/components/comments';
+import { getPostBySlug } from '@/controller/getData';
 
-export default async function page({ data }: props) {
-
+export default async function Page({ params }: { params: { title: string } }) {
+    const { title } = params
+    const postSlug = decodeURIComponent(title)
+    const { data } = await getPostBySlug(postSlug)
     return (
         <article
             className='px-4 mx-auto'
@@ -77,11 +80,7 @@ export default async function page({ data }: props) {
                     <div className='rsw-ce !px-0 !mx-0' dangerouslySetInnerHTML={{ __html: data?.html_content ? data.html_content : data?.content || '' }} />
                 </div>
             </div>
-            <Comments post={data} title={data?.title} />
+            <Comments post={data} />
         </article >
     )
 }
-type props = {
-    data: ArticlePropsType
-    title?: string
-} 
