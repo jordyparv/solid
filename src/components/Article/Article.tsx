@@ -4,13 +4,16 @@ import Card from '../Blog/Card'
 import { ArticlePropsType } from '@/interface'
 import { getArticles } from '@/controller/getData'
 
-export default async function Article({ data, title }: { data: ArticlePropsType[], title?: string }) {
-    const { data: cardsData } = await getArticles({ limit: 4, post_type: 'card' })
+export default async function Article({ data, title, cardData }: {
+    data: ArticlePropsType[],
+    cardData: ArticlePropsType[], title?: string
+}) {
+
     return (
         <div className='mb-10 mx-auto max-w-7xl'>
             {title &&
                 <div className='bg-black/30 backdrop-blur sticky top-0 z-50'>
-                    <h2 className="uppercase font-extrabold border-l-4 border-l-yellow-500 pl-2 flex text-white/80 items-center gap-2 px-4 mx-auto max-w-7xl py-4 text-2xl leading-tight md:text-4xl">
+                    <h2 className="uppercase font-extrabold border-l-4 border-l-primary pl-2 flex text-white items-center gap-2 px-4 mx-auto max-w-7xl py-4 text-2xl leading-tight md:text-4xl">
                         {title}
                     </h2>
                 </div>
@@ -31,7 +34,8 @@ export default async function Article({ data, title }: { data: ArticlePropsType[
 
                 </div>
                 <div className='hidden md:block space-y-4'>
-                    {cardsData?.length > 0 && cardsData?.map((item: ArticlePropsType) =>
+                    <p className='text-base uppercase text-right'>Other post</p>
+                    {cardData?.length > 0 && cardData?.map((item: ArticlePropsType) =>
                         <Card key={item._id} data={item} />
                     )}
                 </div>

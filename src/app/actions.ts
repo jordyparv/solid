@@ -8,5 +8,4 @@ export async function postArticle(formData: FormData) {
     publish: formData.get('publish'),
     content: formData.get('content'),
   };
-  console.log(rawFormData);
 }

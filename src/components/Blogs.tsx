@@ -2,14 +2,16 @@ import React from 'react'
 import Card from './Blog/Card'
 import SingleBlogCard from './Blog/SingleBlogCard'
 import Header from './Header'
+import { ArticlePropsType } from '@/interface'
+import Link from 'next/link'
 
-export default function Blogs({ data }: { data: { [key: string]: any } }) {
+export default function Blogs({ data, title }: { data: ArticlePropsType[], title?: string }) {
 
     return (
 
-        <section className="px-4 mx-auto max-w-7xl mb-20 border-b border-b-white/50 pb-20">
+        <section className="px-4 mx-auto max-w-7xl mb-10">
             <h2 className="mb-6 text-3xl font-extrabold leading-tight">
-                New
+                {title ?? ''}
             </h2>
             {/* <p className="mb-20 text-lg">
                 Comes directly from the desk of engineers, creators and managers at Skcript.
@@ -18,9 +20,10 @@ export default function Blogs({ data }: { data: { [key: string]: any } }) {
                 {data?.length > 0 && data.map((item: any) =>
                     <Card key={item._id} data={item} />
                 )}
-
             </div>
-
+            <div className='mt-10 text-center'>
+                <Link href={'/card/post'} className='btn btn-lg text-primary'>Load More</Link>
+            </div>
         </section>
 
     )

@@ -9,12 +9,12 @@ export default function CategoryForm() {
         const categoryName = {
             name: formData.get('category')?.toString().trim(),
             description: formData.get('description')?.toString().trim(),
-
         }
         try {
             const data = await postCategory(categoryName)
             if (data) {
                 alert(data);
+                console.log(data)
             }
         } catch (error) {
             console.error(error)
@@ -23,8 +23,8 @@ export default function CategoryForm() {
     }
 
     return (
-        <div id='category' className='py-14 snap-start max-w-7xl mx-auto  h-screen overflow-y-auto'>
-            <div className="flex items-center justify-center p-12">
+        <div id='category' className='h-screen overflow-y-auto py-14 snap-start max-w-7xl mx-auto '>
+            <div className="flex items-center justify-center p-12 mt-20">
                 <div className="mx-auto w-full max-w-[800px]">
                     <form action={postData} className='grid grid-cols-1 gap-4'>
 

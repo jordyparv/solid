@@ -7,6 +7,13 @@ export const removeHTMLTags = (text: string) => {
   return result;
 };
 export const slugMaker = (text: string) => {
-  const slug = text.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  // const slug = text
+  //   .replace(/\s+/g, '-')
+  //   .trim()
+  //   .toLowerCase()
+  //   .replace(/[^a-z0-9\-]/g, '');
+  const regex = /[^a-zA-Z0-9-_\u0900-\u097F]/g;
+  var textWithDashes = text.replace(/ /g, '-');
+  var slug = textWithDashes.replace(regex, '');
   return slug;
 };

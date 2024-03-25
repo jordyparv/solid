@@ -22,6 +22,7 @@ export default function BlogForm() {
         }
         getData()
     }, [])
+
     const handleSubmit = async (e: any) => {
 
         e.preventDefault()
@@ -63,8 +64,8 @@ export default function BlogForm() {
 
 
     return (
-        <div id='article' className='py-14 snap-center max-w-7xl mx-auto h-screen overflow-y-auto'>
-            <div className="flex items-center justify-center p-12">
+        <div id='article' className='py-14 h-screen overflow-y-auto snap-center max-w-7xl mx-auto'>
+            <div className="flex items-center justify-center p-12 mt-20">
                 <div className="mx-auto w-full max-w-[800px]">
                     <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-8'>
                         <div className="">
@@ -75,7 +76,7 @@ export default function BlogForm() {
                                 category
                             </label>
                             <select name='category' className="capitalize w-full block placeholder:text-white/20 resize-none rounded-md border border-white/30 bg-white/10 py-3 px-6 text-base font-medium  outline-none focus:border-yellow-500 focus:shadow-md">
-                                <option value='' className='text-/50 font-bold capitalize' disabled selected>Select Category</option>
+                                <option value='' className='text-/50 font-bold capitalize' disabled>Select Category</option>
                                 {category.length > 0 && category.map((item: any) =>
                                     <option
                                         value={item.slug}
@@ -96,8 +97,13 @@ export default function BlogForm() {
                                 Post Type
                             </label>
                             <select required name='postType' className="capitalize w-full block placeholder:text-white/20 resize-none rounded-md border border-white/30 bg-white/10 py-3 px-6 text-base font-medium  outline-none focus:border-yellow-500 focus:shadow-md">
-                                <option defaultValue={'article'} className='text-/50 font-bold capitalize' disabled selected>Select Post Type</option>
-
+                                <option className='text-/50 font-bold capitalize' disabled>Select Post Type</option>
+                                <option
+                                    value={'headline'}
+                                    className='text-black font-medium '
+                                >
+                                    Headline
+                                </option>
                                 <option
                                     value={'card'}
 
@@ -184,7 +190,8 @@ export default function BlogForm() {
                             >
                                 description
                             </label>
-                            <input
+                            <textarea
+                                rows={3}
                                 name="description"
                                 id="description"
                                 required

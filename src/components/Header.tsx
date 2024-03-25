@@ -55,11 +55,11 @@ export default function Header() {
                     <span>
                         Category
                     </span>
-                    <ChevronDownIcon className='size-4 text-white' />
+                    <ChevronDownIcon className={`size-4 transition-all text-white ${isClicked ? 'rotate-180' : 'rotate-0'}`} />
                 </button>
                 {isClicked
                     &&
-                    <ul className='mt-2 mx-2 md:mt-0 md:mx-0 rounded-lg text-white space-y-1 md:absolute top-14 md:border border-gray-800 z-50 md:bg-black/80'
+                    <ul className='mt-2 h-96 overflow-y-auto overflow-x-hidden mx-2  md:mt-0 md:mx-0 rounded-lg text-white space-y-1 md:absolute top-14 md:border border-gray-800 z-50 md:bg-black/80'
                     >
                         {subNavMenuData?.length > 0 && subNavMenuData.map((item: any) =>
                             <SubNavItem name={item?.name} slug={item?.slug} key={item?._id} />)}
@@ -69,8 +69,9 @@ export default function Header() {
             <li className='hover:text-primary font-medium capitalize'><Link href='/news' className='w-full block'>News</Link></li>
             <li className='hover:text-primary font-medium capitalize'><Link href='/blogs' className='w-full block'>Blogs</Link></li>
             <li className='hover:text-primary font-medium capitalize'><Link href='/about' className='w-full block'>About</Link></li>
-            <li className='hover:text-primary font-medium capitalize'><Link href='/contact-us' className='w-full block'>Contact Us</Link></li>
-        </ul >
+            <li className='hover:text-primary font-medium capitalize'><Link href='/search' className='w-full block'>Search</Link></li>
+            {/* <li className='hover:text-primary font-medium capitalize'><Link href='/contact-us' className='w-full block'>Contact Us</Link></li> */}
+        </ul>
 
     }
     return (
@@ -83,7 +84,7 @@ export default function Header() {
                 <div className="flex flex-col md:flex-row gap-2 md:gap-0 md:items-center justify-between p-4 mx-auto max-w-7xl">
                     <div className='flex justify-between items-center'>
                         <Link href='/'>
-                            <p className='text-2xl md:text-4xl font-extrabold border-l-4 border-l-yellow-500 pl-2'>SOLID</p>
+                            <p className='text-2xl md:text-4xl font-extrabold border-l-8 border-l-yellow-500 pl-2'>SOLID</p>
                         </Link>
                         <button className='md:hidden'
                             onClick={() => setShow(prev => !prev)}

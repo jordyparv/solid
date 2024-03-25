@@ -3,9 +3,10 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div className='border-t border-t-gray-900 bg-black text-white'>
+        //border-t border-t-gray-900
+        <div className=' bg-black text-white'>
             <footer className="px-4 py-12 mx-auto max-w-7xl">
-                <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-11 lg:gap-20">
+                {/* <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-11 lg:gap-20">
                     <div className="col-span-3">
                         <Link href="#" title="Hellon   ext Home Page" className="flex items-center">
                             <span className="font-extrabold text-2xl">Jordan</span>
@@ -133,13 +134,13 @@ export default function Footer() {
                             Status
                         </Link>
                     </nav>
-                </div>
+                </div> */}
                 <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-100 md:flex-row md:items-center">
-                    <p className="mb-2 text-xs text-left text-gray-300 md:mb-0">
-                        Built by Product Managers, for Product Managers.
+                    <p className="mb-2 text-xs text-left text-gray-300 md:0">
+                        Built by Parveen
                     </p>
-                    <p className="mb-0 text-xs text-left text-gray-300 md:mb-0">
-                        Copyright © 2024 JORDAN
+                    <p className="text-xs text-left text-gray-300">
+                        Copyright © 2024 SOLID
                     </p>
                 </div>
             </footer>

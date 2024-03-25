@@ -19,7 +19,7 @@ export default function SideCard({ data }: { data: { [key: string]: any } }) {
             </Link>
 
             <div className='mx-auto max-w-7xl '>
-                <h2 className="mb-2 font-bold leading-snug text-gray-900 text-xl md:text-2xl">
+                <h2 className="mb-2 font-bold leading-snug text-gray-900 text-md md:text-xl">
                     <Link href={`/post/${data?.slug}`} className="text-gray-100 hover:text-primary border-b">
                         {data?.title && data.title}
                     </Link>

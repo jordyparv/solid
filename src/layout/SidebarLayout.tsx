@@ -5,7 +5,7 @@ export default function SidebarLayout({ title, subTitle, mainContent, rightConte
         <div className='mb-10'>
 
             <div className='bg-black/50 backdrop-blur sticky top-0 z-30 '>
-                <h2 className="border-l-4 border-l-yellow-500 uppercase pl-2 flex text-white/80 items-center gap-2 px-4 mx-auto max-w-7xl py-4 text-2xl font-extrabold leading-tight md:text-4xl">
+                <h2 className="border-l-4 border-l-primary uppercase pl-2 flex text-white items-center gap-2 px-4 mx-auto max-w-7xl py-4 text-2xl font-extrabold leading-tight md:text-4xl">
                     {title && title}
                     {/* <PlayCircleIcon className='size-16 text-white/20' /> */}
                 </h2>

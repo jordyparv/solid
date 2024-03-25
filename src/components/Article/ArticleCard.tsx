@@ -9,12 +9,15 @@ export default function ArticleCard({ data }: { data: ArticlePropsType }) {
 
     return (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <img
-                src={data?.urlToImage ? data.urlToImage : ''}
-                className="object-cover aspect-video col-span-1 bg-center rounded"
-                alt={data?.title && data.title}
-                loading="lazy"
-            />
+            <Link href={`/post/${data?.slug}`} className='col-span-1'>
+                <img
+                    src={data?.urlToImage ? data.urlToImage : ''}
+                    className="object-cover aspect-video col-span-1 bg-center rounded hover:brightness-110"
+                    alt={data?.title && data.title}
+                    loading="lazy"
+                />
+            </Link>
+
             <div className="col-span-1 ">
 
                 <h2 className="mb-2 text-xl font-extrabold leading-snug line-clamp-3">

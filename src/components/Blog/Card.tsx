@@ -8,13 +8,13 @@ export default function Card({ data }: { data: ArticlePropsType }) {
 
     // let publishedAt = `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`
 
-    return <div className={`relative rounded group aspect-square bg-cover bg-no-repeat bg-center transition-all`}
+    return <div className={`relative rounded group aspect-square bg-cover bg-no-repeat bg-center transition-all hover:brightness-125`}
         style={{
             backgroundImage: `url(${data?.urlToImage ? data?.urlToImage : 'http://placehold.co/400'})`
         }}
     >
         <Link href={`/post/${data?.slug}`}>
-            <div className="absolute z-0 size-full bg-gradient-to-b from-transparent to-black flex flex-col justify-end px-2">
+            <div className="absolute z-0 size-full bg-gradient-to-b from-transparent to-black  flex flex-col justify-end px-2">
                 <h2 className="text-md text-white group-hover:text-primary font-medium line-clamp-2">
                     {data?.title && data.title}
                 </h2>

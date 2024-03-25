@@ -19,10 +19,10 @@ export default function SingleBlogCard({ data }: { data: ArticlePropsType }) {
                     loading="lazy"
                 />
             </Link>
-            <div className='pb-4 md:absolute bottom-0 bg-gradient-to-b  from-transparent via-black/50 to-black w-full'>
+            <div className='pb-4 md:absolute bottom-0 bg-gradient-to-b  from-transparent via-black to-black w-full'>
                 <div className='px-4 mx-auto max-w-7xl'>
-                    <h2 className="mb-2 text-4xl font-bold leading-snug text-gray-900">
-                        <Link href="#" className="text-gray-100 hover:text-primary border-b ">
+                    <h2 className="mb-2 text-2xl md:text-4xl font-bold leading-snug text-gray-900">
+                        <Link href={`/post/${data?.slug}`} className="text-gray-100 hover:text-primary border-b ">
                             {data?.title && data.title}
                         </Link>
                     </h2>
@@ -33,7 +33,7 @@ export default function SingleBlogCard({ data }: { data: ArticlePropsType }) {
                             {formatPublishDate(data?.publishedAt)}
                         </span>
                     </div>
-                    <p className="mb-4 text-sm font-normal text-white/50">
+                    <p className="mb-4 text-sm font-normal text-white/80">
                         {data?.description && data.description}
                     </p>
                 </div>

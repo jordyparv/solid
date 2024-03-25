@@ -1,13 +1,14 @@
 import React from 'react'
-import Login from './Login'
-import BlogForm from './BlogForm'
-import Selection from './Selection'
+import Login from '@/app/admin/Login'
+import BlogForm from '@/app/admin/BlogForm'
+import Selection from '@/app/admin/Selection'
 import Header from '@/components/Header'
-import CategoryForm from './CategoryForm'
+import CategoryForm from '@/app/admin/CategoryForm'
 
 export default function page() {
+
     return (
-        <div className="snap-mandatory snap-y h-screen scroll-smooth overflow-hidden from-white/25  to-black bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]">
+        <div className="relative from-white/25 h-screen overflow-hidden to-black bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]">
             <Header />
             <Selection />
             <BlogForm />

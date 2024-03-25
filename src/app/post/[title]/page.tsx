@@ -5,7 +5,7 @@ import { ArticlePropsType } from '@/interface';
 import TagIcon from '@/components/TagIcon';
 import Comments from '@/components/comments';
 
-export default async function page({ data, title }: props) {
+export default async function page({ data }: props) {
 
     return (
         <article
@@ -41,7 +41,8 @@ export default async function page({ data, title }: props) {
                     <div className='flex justify-between items-end'>
                         <div>
                             <p className='text-sm text-white/50'>Source: <span className='text-white/70 font-medium'>
-                                {data?.author}
+
+                                {data?.source?.name}
                             </span>
                             </p>
                         </div>
@@ -69,11 +70,11 @@ export default async function page({ data, title }: props) {
             </div>
 
             <div className='w-full mx-auto'>
-                <div className='te  xt-justify text-white/60'>
+                <div className='text-justify text-white/60'>
                     {data?.description}
                 </div>
-                <div className='text-lg text-justify !text-white/90 mt-10'>
-                    <div className='rsw-ce' dangerouslySetInnerHTML={{ __html: data?.html_content ? data.html_content : data?.content || '' }} />
+                <div className='text-lg  !text-white/90 mt-10'>
+                    <div className='rsw-ce !px-0 !mx-0' dangerouslySetInnerHTML={{ __html: data?.html_content ? data.html_content : data?.content || '' }} />
                 </div>
             </div>
             <Comments post={data} title={data?.title} />

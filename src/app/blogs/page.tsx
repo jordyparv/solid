@@ -12,7 +12,6 @@ export default async function page() {
         <div>
             <Header />
             <BlogContainer data={data} />
-
         </div>
     )
 }

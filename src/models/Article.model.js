@@ -51,7 +51,7 @@ const ArticleSchema = new Schema(
         content: String,
         html_content: String,
         category: {
-            type: String,
+            type: String, default: 'general'
         },
         keywords: {
             type: [String], // Array of strings for multiple keywords
@@ -71,9 +71,9 @@ const ArticleSchema = new Schema(
         },
 
         enable: { type: Boolean, default: true }
-    }
+    }, { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
-// Logic to generate slug before saving the document (outside schema)
+ArticleSchema.index({ slug: 'text' });
 ArticleSchema.pre('save', function (next) {
     this.slug = slugMaker(this.title);
     next();
