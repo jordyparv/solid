@@ -1,7 +1,7 @@
 import { NextApiRequest } from 'next';
 import Headline from '@/models/Headline.model';
 import dbConnect from '@/utils/db';
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
   try {
     await dbConnect();
     const data = await Headline.find().sort({ createdAt: -1 }).limit(1);
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   try {
     await dbConnect();
     const headlineData = await req.json();
-    
+
     const headline = new Headline(headlineData);
     const saveHeadline = await headline.save();
     return Response.json({ data: saveHeadline });
