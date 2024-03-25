@@ -1,13 +1,10 @@
-import BlogCard from '@/components/Blog/BlogCard'
-import BlogContainer from '@/components/Blog/BlogContainer'
-import BlogList from '@/components/Blog/BlogList'
-import Header from '@/components/Header'
-import SideCard from '@/components/SideCard'
-import { getArticles } from '@/controller/getData'
 import React from 'react'
+import Header from '@/components/Header'
+import { getArticles } from '@/controller/getData'
+import BlogContainer from '@/components/Blog/BlogContainer'
 
 export default async function page() {
-    const {data} = await getArticles()
+    const { data } = await getArticles()
     return (
         <div>
             <Header />

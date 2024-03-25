@@ -9,7 +9,9 @@ export async function postArticle(data: { [key: string]: any }) {
     const resData = await res.json();
     return resData?.data;
   } catch (e: any) {
-    throw e;
+    console.error(e);
+    return [];
+    // throw e;
   }
 }
 export async function postCategory(data: { [key: string]: any }) {
@@ -21,6 +23,8 @@ export async function postCategory(data: { [key: string]: any }) {
     const resData = await res.json();
     return resData?.data;
   } catch (e: any) {
-    throw e;
+    console.error(e);
+    return [];
+    // throw e;
   }
 }

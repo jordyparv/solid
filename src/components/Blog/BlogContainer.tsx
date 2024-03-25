@@ -1,8 +1,6 @@
 import React from 'react'
 import BlogCard from './BlogCard'
 import Card from './Card'
-import ArticleCard from '../Article/ArticleCard'
-import SingleBlogCard from './SingleBlogCard'
 import SideCard from '../SideCard'
 import { ArticlePropsType } from '@/interface'
 import Link from 'next/link'
